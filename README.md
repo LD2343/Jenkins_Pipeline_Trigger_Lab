@@ -11,13 +11,12 @@ This is a Jenkins Webhook Pipeline deployment lab. This lab serves as evidence t
 
 ## 📋 Overview
 
-| What | How |
-|------|-----|
-| Jenkins server | Deployed on AWS EC2 via Terraform |
-| Infrastructure | VPC, subnet, internet gateway, route tables, security group |
-| Pipeline trigger | GitHub webhook on push event |
-| Pipeline definition | `Jenkinsfile` at repo root |
-| Cleanup | `terraform destroy` tears everything down |
+- 🏗️ **Provisioned AWS infrastructure & Jenkins server** via Terraform — EC2, VPC, networking, and a startup script that auto-installed Jenkins with required plugins and configuration
+- 🔑 **Configured Jenkins** with AWS credentials, pipeline definition (`Jenkinsfile`), and connected it to this GitHub repo
+- 🔗 **Set up a GitHub webhook** to trigger the Jenkins pipeline on every push event
+- 🚀 **Triggered the pipeline** via an empty commit — pipeline executed Terraform to deploy an S3 bucket loaded with verification files
+- ✅ **Validated the deployment** — confirmed the pipeline ran successfully and the S3 bucket and files were live in AWS
+- 🧹 **Tore down all infrastructure** — cleaned up the pipeline job and destroyed all AWS resources via `terraform destroy`
 
 ---
 
@@ -30,7 +29,7 @@ Jenkins_Pipeline_Trigger_Lab/
 ├── 📄 00-auth.tf                         # AWS provider / authentication (pipeline-side)
 ├── 📄 01-main.tf                         # Terraform S3 Bucket w/ files (pipeline-side)
 │
-├── 🏗️  jenkins_server_terraform/          # Terraform for the Jenkins EC2 server
+├── 🏗️  jenkins_server_terraform/         # Terraform for the Jenkins EC2 server
 │   ├── 00-auth.tf                        # AWS provider authentication
 │   ├── 01-vpc.tf                         # VPC configuration
 │   ├── 02-subnet.tf                      # Public subnet
@@ -57,7 +56,7 @@ Jenkins_Pipeline_Trigger_Lab/
 │   ├── 12-Student_Group_Verification_Armageddon_Link.png
 │   └── 13-Jenkins_Pipeline_Destroy.png
 │
-└── 📂 armageddon_evidence_files/          # Theo's Approval (folder used in S3 terraform deployment)
+└── 📂 armageddon_evidence_files/          # Theo's Approval & Armageddon Repo Link (used in S3 terraform deployment)
     ├── Armageddon_Group_Link.txt
     └── Theo_Armageddon_Approval.png
 ```
