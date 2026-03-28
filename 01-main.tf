@@ -8,14 +8,18 @@ resource "aws_s3_bucket" "Jenkins_Bucket" {
   }
 }
 
-resource "aws_s3_object" "Armageddon_Approval" {
+resource "aws_s3_object" "Armageddon_Evidence" {
+  for_each = fileset("${path.module}/armageddon_evidence_files", "**")
+
   bucket = aws_s3_bucket.Jenkins_Bucket.id
-  key    = "armageddon_evidence_files/Theo_Armageddon_Approval.png"
-  source = "${path.module}/armageddon_evidence_files/Theo_Armageddon_Approval.png"
+  key    = "armageddon_evidence_files/${each.value}"
+  source = "${path.module}/armageddon_evidence_files/${each.value}"
 }
 
-resource "aws_s3_object" "Armageddon_Repo_Link" {
+resource "aws_s3_object" "Lab_Evidence" {
+  for_each = fileset("${path.module}/lab_evidence", "**")
+
   bucket = aws_s3_bucket.Jenkins_Bucket.id
-  key    = "armageddon_evidence_files/Armageddon_Group_Link.txt"
-  source = "${path.module}/armageddon_evidence_files/Armageddon_Group_Link.txt"
+  key    = "lab_evidence/${each.value}"
+  source = "${path.module}/lab_evidence/${each.value}"
 }
