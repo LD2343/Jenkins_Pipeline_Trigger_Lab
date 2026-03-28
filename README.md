@@ -27,7 +27,7 @@ Jenkins_Pipeline_Trigger_Lab/
 │
 ├── 📄 Jenkinsfile                        # Jenkins pipeline definition (stages, steps)
 ├── 📄 00-auth.tf                         # AWS provider / authentication (pipeline-side)
-├── 📄 01-main.tf                         # Terraform S3 Bucket w/ evidence screenshots (pipeline-side)
+├── 📄 01-main.tf                         # Terraform S3 Bucket w/ evidence screenshots uploaded via fileset (pipeline-side)
 │
 ├── 🏗️  jenkins_server_terraform/         # Terraform for the Jenkins EC2 server
 │   ├── 00-auth.tf                        # AWS provider authentication
@@ -54,6 +54,8 @@ Jenkins_Pipeline_Trigger_Lab/
 │   ├── 10.1-Deployed_S3_Evidence_Bucket.png
 │   ├── 10.2-Deployed_S3_Evidence_Bucket.png
 │   ├── 10.3-Deployed_S3_Evidence_Bucket.png
+│   ├── 10.4-Deployed_S3_Evidence_Bucket.png
+│   ├── 10.5-Deployed_S3_Evidence_Bucket.png
 │   ├── 11-Proof_Theo_Pass_Approval.png
 │   ├── 12-Student_Group_Verification_Armageddon_Link.png
 │   └── 13-Jenkins_Pipeline_Destroy.png
