@@ -43,16 +43,16 @@ resource "aws_subnet" "public_1" {
 # These subnets do not have direct internet access
 # They can reach the internet through the NAT gateway
 
-resource "aws_subnet" "private_1" {
-  vpc_id            = aws_vpc.main.id
-  cidr_block        = "10.130.11.0/24"
-  availability_zone = "us-east-1a"
+# resource "aws_subnet" "private_1" {
+#   vpc_id            = aws_vpc.main.id
+#   cidr_block        = "10.130.11.0/24"
+#   availability_zone = "us-east-1a"
 
-  tags = {
-    Name = "jenkins-private-subnet-1"
-    Type = "Private"
-  }
-}
+#   tags = {
+#     Name = "jenkins-private-subnet-1"
+#     Type = "Private"
+#   }
+# }
 
 # resource "aws_subnet" "private_2" {
 #   vpc_id            = aws_vpc.main.id
